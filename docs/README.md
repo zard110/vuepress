@@ -1,30 +1,30 @@
 ---
 home: true
 heroImage: /hero.png
-actionText: Get Started →
+actionText: 起步 →
 actionLink: /guide/
 features:
-- title: Simplicity First
-  details: Minimal setup with markdown-centered project structure helps you focus on writing.
-- title: Vue-Powered
-  details: Enjoy the dev experience of Vue + webpack, use Vue components in markdown, and develop custom themes with Vue.
-- title: Performant
-  details: VuePress generates pre-rendered static HTML for each page, and runs as an SPA once a page is loaded.
+- title: 简明优先
+  details: 对以 markdown 为中心的项目结构，做最简化的配置，帮助你专注于创作。
+- title: Vue 驱动
+  details: 享用 Vue + webpack 开发环境，在 markdown 中使用 Vue 组件，并通过 Vue 开发自定义主题。
+- title: 性能高效
+  details: VuePress 将每个页面生成为预渲染的静态 HTML，每个页面加载之后，然后作为单页面应用程序(SPA)运行。
 footer: MIT Licensed | Copyright © 2018-present Evan You
 ---
 
-### As Easy as 1, 2, 3
+### 起步就像数 1, 2, 3 一样容易
 
 ``` bash
-# install
+# 安装
 npm install -g vuepress
 
-# create a markdown file
+# 创建一个 markdown 文件
 echo "# Hello VuePress" > README.md
 
-# start writing
+# 开始编写
 vuepress dev
 
-# build to static files
+# 构建为静态文件
 vuepress build
 ```
