@@ -1,10 +1,10 @@
-# Configuration
+# 配置
 
-## Config File
+## 配置文件（Config File）
 
-Without any configuration, the page is pretty minimal, and the user has no way to navigate around the site. To customize your site, let's first create a `.vuepress` directory inside your docs directory. This is where all VuePress-specific files will be placed in.
+没有任何配置，页面非常小，用户无法浏览网站。要定制你的网站，我们首先在你的文档目录中创建一个 `.vuepress` 目录。这是所有 VuePress 特定文件将被放入的地方。
 
-The essential file for configuring a VuePress site is `.vuepress/config.js`, which should export a JavaScript object:
+配置 VuePress 站点的基本文件是 `.vuepress/config.js`，它应该导出一个 JavaScript 对象：
 
 ``` js
 module.exports = {
@@ -13,12 +13,12 @@ module.exports = {
 }
 ```
 
-If you've got the dev server running, you should see the page now has a header with the title and a search box. VuePress comes with built-in headers-based search - it automatically builds a simple search index from the title, `h2` and `h3` headers from all the pages.
+如果你有开发服务器在运行，你应该看到该页面现在有一个标题和一个搜索框。VuePress 带有内置的基于标题的搜索功能 - 它会自动从所有页面的标题，`h2` 和 `h3` 标题中建立一个简单的搜索索引。
 
-Consult the [Config Reference](../config/) for a full list of options.
+请查阅[配置参考](../config/)以获取完整的选项列表。
 
-## Theme Configuration
+## 主题配置（Theme Configuration）
 
-A VuePress theme is responsible for all the layout and interactivity details of your site. VuePress ships with a default theme (you are looking at it right now) which is designed for technical documentation. It exposes a number of options that allow you to customize the navbar, sidebar and homepage, etc. For details, check out the [Default Theme Config](../default-theme-config/) page.
+VuePress 主题负责你网站的所有布局和交互细节。VuePress 附带一个默认主题（你现在正在查看的），它是专门为技术文档设计的。它公开了许多选项，允许你自定义导航栏，边栏和主页等。有关详细信息，请查看[默认主题配置](../default-theme-config/)页面。
 
-If you wish to develop a custom theme, see [Custom Themes](./custom-themes.md).
+如果你想开发自定义主题，请参阅[自定义主题](./custom-themes.md)。

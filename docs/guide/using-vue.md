@@ -1,10 +1,10 @@
-# Using Vue in Markdown
+# 在 Markdown 中使用 Vue
 
-## Browser API Access Restrictions
+## 浏览器 API 访问限制
 
-Because VuePress applications are server-rendered in Node.js when generating static builds, any Vue usage must conform to the [universal code requirements](https://ssr.vuejs.org/en/universal.html). In short, make sure to only access Browser / DOM APIs in `beforeMounted` or `mounted` hooks.
+由于 VuePress 应用程序在生成静态构建时在 Node.js 中进行服务器呈现，所以任何 Vue 用法都必须符合[通用代码要求](https://ssr.vuejs.org/en/universal.html)。简而言之，确保只在 `beforeMounted` 或 `mounted` 钩子中访问 Browser / DOM API。
 
-If you are using or demoing a component that is not SSR friendly (for example containing custom directives), you can wrap them inside the built-in `<ClientOnly>` component:
+如果你正在使用或演示非 SSR 友好的组件（例如包含了自定义指令），则可以将它们包装在内置的 `<ClientOnly>` 组件中：
 
 ``` md
 <ClientOnly>
@@ -12,7 +12,7 @@ If you are using or demoing a component that is not SSR friendly (for example co
 </ClientOnly>
 ```
 
-Note this does not fix components or libraries that access Browser APIs **on import** - in order to use code that assumes a browser environment on import, you need to dynamically import them in proper lifecycle hooks:
+请注意，这不会修复 **在 import** 上访问浏览器 API 的组件或库 - 为了使用在导入时使用浏览器环境的代码，你需要将它们动态地导入到正确的生命周期钩子中：
 
 ``` vue
 <script>
@@ -26,47 +26,47 @@ export default {
 </script>
 ```
 
-## Templating
+## 模板（Templating）
 
-### Interpolation
+### 插值
 
-Each markdown file is first compiled into HTML and then passed on as a Vue component to `vue-loader`. This means you can use Vue-style interpolation in text:
+每个 markdown 文件首先被编译成 HTML，然后作为 Vue 组件传递给 `vue-loader` 。这意味着你可以在文本中使用 Vue 风格的插值表达式：
 
-**Input**
+**输入**
 
 ``` md
 {{ 1 + 1 }}
 ```
 
-**Output**
+**输出**
 
 <pre><code>{{ 1 + 1 }}</code></pre>
 
-### Directives
+### 指令
 
-Directives also work:
+指令也起作用：
 
-**Input**
+**输入**
 
 ``` md
 <span v-for="i in 3">{{ i }} </span>
 ```
 
-**Output**
+**输出**
 
 <pre><code><span v-for="i in 3">{{ i }} </span></code></pre>
 
-### Access to Site & Page Data
+### 访问网站和页面数据
 
-The compiled component does not have any private data but do have access to the [site metadata](./custom-themes.md#site-and-page-metadata). For example:
+已编译的组件没有任何私有数据，但可以访问[站点元数据](./custom-themes.md#site-and-page-metadata)。例如：
 
-**Input**
+**输入**
 
 ``` md
 {{ $page }}
 ```
 
-**Output**
+**输出**
 
 ``` json
 {
@@ -76,11 +76,11 @@ The compiled component does not have any private data but do have access to the 
 }
 ```
 
-## Escaping
+## 转义（Escaping）
 
-By default, fenced code blocks are automatically wrapped with `v-pre`. If you want to display raw mustaches or Vue-specific syntax inside inline code snippets or plain text, you need to wrap a paragraph with the `v-pre` custom container:
+默认情况下，fenced 代码块会自动用 `v-pre` 包装。如果要在内联代码片段或纯文本内显示原始插值或特定于 Vue 的语法，则需要用 `v-pre` 自定义容器包装段落：
 
-**Input**
+**输入**
 
 ``` md
 ::: v-pre
@@ -88,15 +88,15 @@ By default, fenced code blocks are automatically wrapped with `v-pre`. If you wa
 :::
 ```
 
-**Output**
+**输出**
 
 ::: v-pre
 `{{ This will be displayed as-is }}`
 :::
 
-## Using Components
+## 使用组件（Using Components）
 
-Any `*.vue` file found in `.vuepress/components` are automatically registered as global async components. For example:
+`.vuepress / components` 中的任意 `* .vue` 文件都会自动注册为全局的异步组件。例如：
 
 ```
 .
@@ -106,7 +106,7 @@ Any `*.vue` file found in `.vuepress/components` are automatically registered as
       └─ OtherComponent.vue
 ```
 
-Inside any markdown file you can then directly use the components (names are inferred from filenames):
+在任何 markdown 文件中，你可以直接使用这些组件（名称是从文件名推断的）：
 
 ``` md
 <demo-1/>
@@ -117,13 +117,13 @@ Inside any markdown file you can then directly use the components (names are inf
 
 <OtherComponent/>
 
-::: warning IMPORTANT
-Make sure a custom component's names either contains a hyphen or is in PascalCase. Otherwise it will be treated as an inline element and wrapped inside a `<p>` tag, which will lead to hydration mismatch because `<p>` does not allow block elements to be placed inside it.
+::: warning 重要的
+确保自定义组件的名称包含连字符或位于 PascalCase 中。否则，它将被视为内联元素，并被包裹在一个 `<p>` 标签内，这将导致 hydration 不匹配，因为 `<p>` 不允许块元素放置在其中。
 :::
 
-## Script & Style Hoisting
-
-Sometimes you may need to apply some JavaScript or CSS only to the current page. In those cases you can directly write root-level `<script>` or `<style>` blocks in the markdown file, and they will be hoisted out of the compiled HTML and used as the `<script>` and `<style>` blocks for the resulting Vue single-file component.
+## 脚本和样式提升（Script & Style Hoisting）
+  
+有时你可能需要将一些 JavaScript 或 CSS 仅应用于当前页面。在这些情况下，你可以在 markdown 文件中直接编写根级别的 `<script>` 和 `<style>` 块，并将它们从编译的 HTML 中提取出来，并用作 `<script>` 和 `<style>` 生成 Vue 单个文件组件块。
 
 <p class="demo" :class="$style.example"></p>
 
@@ -137,7 +137,7 @@ Sometimes you may need to apply some JavaScript or CSS only to the current page.
 export default {
   mounted () {
     document.querySelector(`.${this.$style.example}`)
-      .textContent = 'This is rendered by inline script and styled by inline CSS'
+      .textContent = '这是通过内联脚本渲染的并由内嵌 CSS 样式呈现'
   }
 }
 </script>

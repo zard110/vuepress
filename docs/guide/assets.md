@@ -1,23 +1,23 @@
-# Asset Handling
+# 资源处理
 
-## Relative URLs
+## 相对 URLs
 
-All markdown files are compiled into Vue components and processed by webpack, therefore you can and **should prefer** referencing any asset using relative URLs:
+所有 markdown 文件都被编译到 Vue 组件中并由 webpack 处理，因此你 **should prefer** 使用相对 URL 引用任意资源：
 
 ``` md
 ![An image](./image.png)
 ```
 
-This would work the same way as in `*.vue` file templates. The image will be processed with `url-loader` and `file-loader`, and copied to appropriate locations in the generated static build.
+这将和 `* .vue` 文件模板中的相同方式运作。该图像将通过 `url-loader` 和 `file-loader` 进行处理，并被复制到生成的静态构建文件中的适当位置。
 
-In addition, you can use the `~` prefix to explicitly indicate this is a webpack module request, allowing you to reference files with webpack aliases or from npm dependencies:
+另外，你可以使用 `~` 前缀来明确指出这是一个 webpack 模块请求，允许你使用 webpack 别名或 npm 依赖关系引用文件：
 
 ``` md
 ![Image from alias](~@alias/image.png)
 ![Image from dependency](~some-dependency/image.png)
 ```
 
-webpack aliases can be configured via [configureWebpack](/config/#configurewebpack) in `.vuepress/config.js`. Example:
+webpack 别名可以通过 `.vuepress/config.js` 中的 [configureWebpack](/config/#configurewebpack) 进行配置。例如：
 
 ``` js
 module.exports = {
@@ -31,20 +31,20 @@ module.exports = {
 }
 ```
 
-## Public Files
+## 公共文件
 
-Sometimes you may need to provide static assets that are not directly referenced in any of your markdown or theme components - for example, favicons and PWA icons. In such cases you can put them inside `.vuepress/public` and they will be copied to the root of the generated directory.
+有时，你可能需要提供静态资源，这些资源并没有在任何 markdown 或主题组件中直接引用 - 例如，favicons 和 PWA 图标。在这种情况下，你可以将它们放在 `.vuepress/public` 中，并且它们将被复制到生成的目录的根目录。
 
-## Base URL
+## 基准 URL
 
-If your site is deployed to a non-root URL, you will need to set the `base` option in `.vuepress/config.js`. For example, if you plan to deploy your site to `https://foo.github.io/bar/`, then `base` should be set to `"/bar/"` (it should always start and end with a slash).
+如果你的网站部署到非根 URL，则需要在 `.vuepress/config.js` 中设置 `base` 选项。例如，如果你打算将你的网站部署到 `https://foo.github.io/bar/`，那么`base`应该设置为 `"/bar/"`（它应该始终以斜杠开始和结束）。
 
-With a base URL, if you want to reference an image in `.vuepress/public`, you'd have to use URLs like `/bar/image.png`. However, this is brittle if you ever decide to change the `base` later. To help with that, VuePress provides a built-in helper `$withBase` (injected onto Vue's prototype) that generates the correct path:
+使用基准 URL，如果你想在 `.vuepress/public` 中引用图片，则必须使用像 `/bar/image.png` 这样的 URL。但是，如果你稍后决定更改 `base` ，这就很脆弱了。为了解决这个问题，VuePress 提供了一个内置的帮助器 `$withBase`（注入到 Vue 的原型中），它可以生成正确的路径：
 
 ``` vue
 <img :src="$withBase('/foo.png')" alt="foo">
 ```
 
-Note you can use the above syntax not only in theme components, but in your markdown files as well.
+请注意，你不仅可以在主题组件中使用上述语法，还可以在 markdown 文件中使用上述语法。
 
-In addition, if a `base` is set, it is automatically prepended to all asset URLs in `.vuepress/config.js` options.
+另外，如果设置了 `base`，它会自动预置到 `.vuepress/config.js` 选项中的所有资源 URL。

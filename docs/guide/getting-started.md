@@ -1,41 +1,41 @@
-# Getting Started
+# 起步
 
-## Global Installation
+## 全局安装（Global Installation）
 
-If you just want to play around with VuePress, you can install it globally:
+如果你只是想玩玩 VuePress，你可以在全局安装它：
 
 ``` bash
-# install globally
+# 全局安装
 npm install -g vuepress
 
-# create a markdown file
+# 创建一个 markdown 文件
 echo "# Hello VuePress" > README.md
 
-# start writing
+# 开始写作
 vuepress dev
 
-# build
+# 构建
 vuepress build
 ```
 
-## Inside an Existing Project
+## 在现有项目中（Inside an Existing Project）
 
-If you have an existing project and would like to keep documentation inside the project, you should install VuePress as a local dependency. This setup also allows you to use CI or services like Netlify for automatic deployment on push.
+如果你有一个现有的项目并希望将文档保存在项目中，就应该将 VuePress 安装为本地依赖项。此设置还允许你使用 CI 或 Netlify 等服务在推送时自动部署。
 
 ``` bash
-# install as a local dependency
+# 安装为本地依赖项
 npm install -D vuepress
 
-# create a docs directory
+# 创建一个 docs 目录
 mkdir docs
-# create a markdown file
+# 创建一个 markdown 文件
 echo "# Hello VuePress!" > docs/README.md
 
-# start writing
+# 开始写作
 npx vuepress dev docs
 ```
 
-Or, add some scripts to `package.json`:
+或者, 给 `package.json` 添加一些脚本：
 
 ``` json
 {
@@ -46,16 +46,16 @@ Or, add some scripts to `package.json`:
 }
 ```
 
-Then you can start writing with:
+然后你就可以开始写作：
 
 ``` bash
 npm run docs:dev
 ```
 
-To generate static assets, run:
+要生成静态资产，请运行：
 
 ``` bash
 npm run docs:build
 ```
 
-By default the built files will be in `.vuepress/dist`, which can be configured via the `dest` field in `.vuepress/config.js`. The built files can be deployed to any static file server. See [Deployment Guide](./deploy.md) for guides on deploying to popular services.
+默认情况下，构建的文件将位于 `.vuepress/dist` 中，该文件可以通过 `.vuepress/config.js` 中的 `dest` 字段进行配置。构建的文件可以部署到任何静态文件服务器。有关部署到常用服务的指南，请参阅[部署教程](./deploy.md)。
