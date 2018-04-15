@@ -10,7 +10,7 @@
     "dev": "node bin/vuepress dev docs",
     "build": "node bin/vuepress build docs",
     "lint": "eslint bin lib test",
-    "deploy-gh": "GH=1 yarn build && bash scripts/deploy-gh.sh"
+    "deploy-gh": "yarn build && bash scripts/deploy-gh.sh"
   },
   "repository": {
     "type": "git",
