@@ -2,44 +2,44 @@
 sidebar: auto
 ---
 
-# Config Reference
+# 配置参考
 
-## Basic Config
+## 基本配置（Basic Config）
 
 ### base
 
 - Type: `string`
 - Default: `/`
 
-The base URL the site will be deployed at. You will need to set this if you plan to deploy your site under a sub path, for example GitHub pages. If you plan to deploy your site to `https://foo.github.io/bar/`, then `base` should be set to `"/bar/"`. It should always start and end with a slash.
+网站将在其部署的基本 URL。如果您打算在子路径下部署您的站点，例如 GitHub 页面，则需要设置此项。如果您打算将您的网站部署到`https://foo.github.io/bar/`，则应将 `base` 设置为 `"/bar/"`。它应该始终以斜杠开始和结束。
 
-The `base` is automatically prepended to all the URLs that start with `/` in other options, so you only need to specify it once.
+在其他选项中，`base` 会自动添加到以 `/` 开头的所有 URL 中，因此您只需指定一次即可。
 
-**Also see:**
+**另请参阅：**
 
-- [Base URL](../guide/assets.md#base-url)
-- [Deploy Guide > Github Pages](../guide/deploy.md#github-pages)
+- [基本 URL](../guide/assets.md#base-url)
+- [部署教程 > Github 页面](../guide/deploy.md#github-pages)
 
 ### title
 
 - Type: `string`
 - Default: `undefined`
 
-Title for the site. This will be the prefix for all page titles, and displayed in the navbar in the default theme.
+网站的标题。这将是所有页面标题的前缀，并显示在默认主题的导航栏中。
 
 ### description
 
 - Type: `string`
 - Default: `undefined`
 
-Description for the site. This will be rendered as a `<meta>` tag in the page HTML.
+网站描述。这将在页面 HTML 中表现为一个 `<meta>` 标签。
 
 ### head
 
 - Type: `Array`
 - Default: `[]`
 
-Extra tags to be injected to the page HTML `<head>`. Each tag can be specified in the form of `[tagName, { attrName: attrValue }, innerHTML?]`. For example, to add a custom favicon:
+被注入页面 HTML `<head>` 额外的标签。每个标签可以用 `[tagName, { attrName: attrValue }, innerHTML?]` 的形式指定。例如，要添加自定义图标：
 
 ``` js
 module.exports = {
@@ -54,30 +54,30 @@ module.exports = {
 - Type: `number`
 - Default: `8080`
 
-Specify the port to use for the dev server.
+指定用于 dev 服务器的端口。
 
 ### dest
 
 - Type: `string`
 - Default: `.vuepress/dist`
 
-Specify the output directory for `vuepress build`.
+指定 `vuepress build` 的输出目录。
 
 ### ga
 
 - Type: `string`
 - Default: `undefined`
 
-Provide the Google Analytics ID to enable integration.
+提供 Google AnalyticsID 来开启集成。
 
 ### serviceWorker
 
 - Type: `boolean`
 - Default: `false`
 
-If set to `true`, VuePress will automatically generate and register a service worker that caches the content for offline use (only enabled in production).
+如果设置为 `true`，VuePress 将自动生成并注册一个 service worker ，这个 worker 将内容缓存以供离线使用（仅在生产环境中启用）。
 
-If developing a custom theme, the `Layout.vue` component will also be emitting the following events:
+如果开发一个自定义主题，`Layout.vue` 组件还将触发以下事件：
 
 - `sw-ready`
 - `sw-cached`
@@ -85,31 +85,31 @@ If developing a custom theme, the `Layout.vue` component will also be emitting t
 - `sw-offline`
 - `sw-error`
 
-::: tip PWA NOTES
-The `serviceWorker` option only handles the service worker. To make your site fully PWA-compliant, you will need to provide the Web App Manifest and icons in `.vuepress/public`. For more details, see [MDN docs about the Web App Manifest](https://developer.mozilla.org/en-US/docs/Web/Manifest).
+::: tip PWA 注意事项
+`serviceWorker` 选项只能处理 service worker。要使您的站点完全符合 PWA，您需要在`.vuepress/public` 中提供 Web App 清单和图标。有关更多详细信息，请参阅 [MDN 关于 Web 应用程序清单的文档](https://developer.mozilla.org/en-US/docs/Web/Manifest)。
 
-Also, only enable this if you are able to deploy your site with SSL, since service worker can only be registered under HTTPs URLs.
+此外，只有在您能够使用 SSL 部署您的站点时才能启用此功能，因为 service worker 只能在 HTTPs URLs 下注册。
 :::
 
-## Theming
+## 主题化（Theming）
 
 ### theme
 
 - Type: `string`
 - Default: `undefined`
 
-Specify this to use a custom theme. With the value of `"foo"`, VuePress will attempt to load the theme component at `node_modules/vuepress-theme-foo/Layout.vue`.
+指定此选项来使用自定义主题。使用 `“foo”` 的值，VuePress 将尝试在 `node_modules/vuepress-theme-foo/Layout.vue` 加载主题组件。
 
 ### themeConfig
 
 - Type: `Object`
 - Default: `{}`
 
-Provide config options to the used theme. The options will vary depending on the theme you are using.
+为使用的主题提供配置选项。这些选项将根据您使用的主题而有所不同。
 
-**Also see:**
+**另请参阅：**
 
-- [Default Theme Configuration](../default-theme-config/).
+- [默认主题配置](../default-theme-config/).
 
 ## Markdown
 
@@ -118,21 +118,21 @@ Provide config options to the used theme. The options will vary depending on the
 - Type: `Object`
 - Default: `{ permalink: true, permalinkBefore: true, permalinkSymbol: '#' }`
 
-Options for [markdown-it-anchor](https://github.com/valeriangalliat/markdown-it-anchor).
+[markdown-it-anchor](https://github.com/valeriangalliat/markdown-it-anchor) 的选项。
 
 ### markdown.toc
 
 - Type: `Object`
 - Default: `{ includeLevel: [2, 3] }`
 
-Options for [markdown-it-table-of-contents](https://github.com/Oktavilla/markdown-it-table-of-contents).
+[markdown-it-table-of-contents](https://github.com/Oktavilla/markdown-it-table-of-contents) 的选项。
 
 ### markdown.config
 
 - Type: `Function`
 - Default: `undefined`
 
-A function to apply additional plugins to the [markdown-it](https://github.com/markdown-it/markdown-it) instance used to render source files. Example:
+将额外的插件应用于渲染源文件的 [markdown-it](https://github.com/markdown-it/markdown-it) 实例的函数。例：
 
 ``` js
 module.exports = {
@@ -144,21 +144,21 @@ module.exports = {
 }
 ```
 
-## Build Pipeline
+## 建立管道（Build Pipeline）
 
 ### postcss
 
 - Type: `Object`
 - Default: `{ plugins: [require('autoprefixer')] }`
 
-Options for [postcss-loader](https://github.com/postcss/postcss-loader). Note specifying this value will overwrite autoprefixer and you will need to include it yourself.
+[postcss-loader](https://github.com/postcss/postcss-loader) 的选项。注意指定这个值将覆盖 autoprefixer，你将需要自己包含它。
 
 ### configureWebpack
 
 - Type: `Object | Function`
 - Default: `undefined`
 
-Modify the internal webpack config. If the value is an Object, it will be merged into the final config using [webpack-merge](https://github.com/survivejs/webpack-merge); If the value is a function, it will receive the config as the 1st argument and an `isServer` flag as the 2nd argument. You can either mutate the config directly, or return an object to be merged:
+修改内部 webpack 配置。如果该值是一个对象，它将被合并到使用 [webpack-merge](https://github.com/survivejs/webpack-merge)的最终配置中;如果该值是一个函数，它将接收配置作为第一个参数，并将 `isServer` 标志作为第二个参数。你可以直接改变配置，或者返回一个要合并的对象：
 
 ``` js
 module.exports = {
@@ -175,7 +175,7 @@ module.exports = {
 - Type: `Function`
 - Default: `undefined`
 
-Modify the internal webpack config with [webpack-chain](https://github.com/mozilla-neutrino/webpack-chain).
+使用 [webpack-chain](https://github.com/mozilla-neutrino/webpack-chain) 修改内部 webpack 配置。
 
 ``` js
 module.exports = {
@@ -185,11 +185,11 @@ module.exports = {
 }
 ```
 
-## Browser Compatibility
+## 浏览器兼容性（Browser Compatibility）
 
 ### evergreen
 
 - Type: `boolean`
 - Default: `false`
 
-Set to `true` if you are only targeting evergreen browsers. This will disable ES5 transpilation and polyfills for IE, and result in faster builds and smaller files.
+如果您只针对常青树浏览器，请设置为 `true` 。这将禁用 IE5 的 ES5 转码和 polyfill，导致更快的构建和更小的文件。

@@ -1,34 +1,34 @@
-# Deploying
+# 部署
 
-The following guides assumes you are placing your docs inside the `docs` directory of your project and using the default build output location.
+以下指南假设你将文档放置在项目的 `docs` 目录中，并使用默认的编译输出位置。
 
-## GitHub Pages
+## GitHub 页面
 
-1. Set `base` in `.vuepress/config.js` to your repository's name. For example, if your repository is `https://github.com/foo/bar`, the deployed pages will be available at `https://foo.github.io/bar`. In this case, you should set `base` to `"/bar/"`.
+1. 将 `.vuepress/config.js` 中的 `base` 设置为你的仓库名称。例如，如果你的仓库是 `https://github.com/foo/bar` ，则已部署的页面将在 `https://foo.github.io/bar` 上可用。在这种情况下，你应该将`base`设置为 `"/bar/"` 。
 
-2. Inside your project, run:
+2. 在你的项目中，运行：
 
 ``` bash
-# build
+# 构建
 vuepress build docs
 
-# navigate into the build output directory
+# 导航到构建输出目录
 cd docs/.vuepress/dist
 
 git init
 git add -A
 git commit -m 'deploy'
 
-# push to the gh-pages branch of your repo.
-# replace <USERNAME>/<REPO> with your info
+# 推到你仓库的的 gh-page 分支
+# 将 <USERNAME>/<REPO> 替换为你的信息
 git push -f git@github.com:<USERNAME>/<REPO>.git master:gh-pages
 ```
 
-You can run this script in your CI setup to enable automatic deployment on each push.
+你可以在 CI 设置中运行此脚本以启用每次推送时的自动部署。
 
 ## Netlify
 
-1. Make sure you have npm scripts for building your docs:
+1. 确保你有用于构建文档的 npm 脚本：
 
 ``` json
 {
@@ -38,9 +38,9 @@ You can run this script in your CI setup to enable automatic deployment on each 
 }
 ```
 
-2. On Netlify, setup up a new project from GitHub with the following settings:
+2. 在 Netlify 上，使用以下设置从 GitHub 创建一个新项目：
 
-  - **Build Command:** `npm run build-docs` or `yarn build-docs`
-  - **Publish directory:** `docs/.vuepress/dist`
+  - **构建命令：** `npm run build-docs` or `yarn build-docs`
+  - **发布目录：** `docs/.vuepress/dist`
 
-3. Hit the deploy button!
+3. 点击部署按钮！

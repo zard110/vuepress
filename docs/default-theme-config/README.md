@@ -2,15 +2,15 @@
 sidebar: auto
 ---
 
-# Default Theme Config
+# 默认主题配置（Default Theme Config）
 
-::: tip
-All options listed on this page apply to the default theme only. If you are using a custom theme, the options may be different.
+::: tip 提示
+此页面上列出的所有选项仅适用于默认主题。如果您使用的是自定义主题，则选项可能会有所不同。
 :::
 
-## Homepage
+## 主页（Homepage）
 
-The default theme provides a homepage layout (which is used on [the homepage of this very website](/)). To use it, specify `home: true` plus some other metadata in your root `README.md`'s YAML front matter. This is the actual data used on this site:
+默认主题提供了一个主页布局（用于[该网站的主页](/)）。要使用它，需要在你的根目录 `README.md` 的 YAML 前端中指定 `home：true` 加上一些其他元数据。这是本网站使用的实际数据：
 
 ``` yaml
 ---
@@ -29,11 +29,11 @@ footer: MIT Licensed | Copyright © 2018-present Evan You
 ---
 ```
 
-Any additional content after the front matter will be parsed as normal markdown and rendered after the features section.
+前面的内容之后的任意其他内容将被解析为正常 markdown 并在特性部分之后渲染。
 
-## Navbar Links
+## 导航链接（Navbar Links）
 
-You can add links to the navbar via `themeConfig.nav`:
+您可以通过 `themeConfig.nav` 将链接添加到导航栏中：
 
 ``` js
 // .vuepress/config.js
@@ -48,9 +48,9 @@ module.exports = {
 }
 ```
 
-## Sidebar
+## 侧边栏（Sidebar）
 
-To enable the sidebar, use `themeConfig.sidebar`. The basic configuration expects an Array of links:
+要启用侧边栏，请使用 `themeConfig.sidebar`。基本配置需要一系列链接：
 
 ``` js
 // .vuepress/config.js
@@ -65,13 +65,13 @@ module.exports = {
 }
 ```
 
-You can omit the `.md` extension, and paths ending with `/` are inferred as `*/README.md`. The text for the link is automatically inferred (either from the first header in the page or explicit title in YAML frontmatter). If you wish to explicitly specify the link text, use an Array in form of `[link, text]`.
+您可以省略 `.md` 扩展名，以 `/` 结尾的路径被推断为 `*/README.md` 。该链接的文本是自动推断的（从页面的第一个标题或 YAML 前端中的显式标题）。如果您希望明确指定链接文本，请使用 `[link,text]` 形式的数组。
 
-### Nested Header Links
+### 嵌套标题链接（Nested Header Links）
 
-The sidebar automatically displays links for headers in the current active page, nested under the link for the page itself. You can customize this behavior using `themeConfig.sidebarDepth`. The default depth is `1`, which extracts the `h2` headers. Setting it to `0` disables the header links, and the max value is `2` which extracts both `h2` and `h3` headers.
+侧边栏自动显示当前激活页面中标题的链接，嵌套在页面本身的链接下。您可以使用 `themeConfig.sidebarDepth` 自定义此行为。默认深度是 `1`，它提取 `h2` 标题。将其设置为 `0` 将禁用标题链接，最大值为`2`，同时提取 `h2` 和 `h3` 标题。
 
-A page can also override this value in using YAML frontmatter:
+页面也可以在使用 YAML 前端时覆盖此值：
 
 ``` md
 ---
@@ -79,9 +79,9 @@ sidebarDepth: 2
 ---
 ```
 
-### Sidebar Groups
+### 侧边栏组（Sidebar Groups）
 
-You can divide sidebar links into multiple groups by using objects:
+您可以使用对象将侧边栏链接分成多个组：
 
 ``` js
 // .vuepress/config.js
@@ -104,11 +104,11 @@ module.exports = {
 }
 ```
 
-Sidebar groups are collapsable by default. You can force a group to be always open with `collapsable: false`.
+侧边栏组默认情况下是可折叠的。您可以强制一个组始终以 `collapsable：false` 打开。
 
-### Multiple Sidebars
+### 多个侧边栏（Multiple Sidebars）
 
-If you wish to display different sidebars for different group of pages, first organize your pages into directories:
+如果您希望为不同的页面组显示不同的侧边栏，请先将页面组织到目录中：
 
 ```
 .
@@ -123,20 +123,20 @@ If you wish to display different sidebars for different group of pages, first or
    └─ four.md
 ```
 
-Then, with the following sidebar config:
+然后，使用以下侧边栏配置：
 
 ``` js
 // .vuepress/config.js
 module.exports = {
   themeConfig: {
     sidebar: {
-      // sidebar for pages under /foo/
+      // 侧边栏在 /foo/ 上
       '/foo/': [
         '',
         'one',
         'two'
       ],
-      // sidebar for pages under /bar/
+      // 侧边栏在 /bar/ 上
       '/bar/': [
         '',
         'three',
@@ -147,9 +147,9 @@ module.exports = {
 }
 ```
 
-### Auto Sidebar for Single Pages
+### 单页自动补充工具栏（Auto Sidebar for Single Pages）
 
-If you wish to automatically generate a sidebar that contains only the header links for the current page, you can use YAML front matter on that page:
+如果您希望自动生成仅包含当前页面的标题链接的侧边栏，则可以在该页面上使用 YAML 前端：
 
 ``` yaml
 ---
@@ -157,9 +157,9 @@ sidebar: auto
 ---
 ```
 
-### Disabling the Sidebar
+### 禁用侧边栏（Disabling the Sidebar）
 
-You can disable the sidebar on a specific page with YAML front matter:
+您可以使用 YAML 前端禁用特定页面上的侧边栏：
 
 ``` yaml
 ---
@@ -167,9 +167,9 @@ sidebar: false
 ---
 ```
 
-## Prev / Next Links
+## 上一页/下一页链接（Prev / Next Links）
 
-Prev and next links are automatically inferred based on the sidebar order of the active page. You can also explicitly overwrite or disable them using YAML front matter:
+根据激活页面的侧边栏顺序自动推断上一个和下一个链接。您也可以使用 YAML 前端来显式覆盖或禁用它们：
 
 ``` yaml
 ---
@@ -178,43 +178,43 @@ next: false
 ---
 ```
 
-## GitHub Repo and Edit Links
+## GitHub 仓库和编辑链接
 
-Providing `themeConfig.repo` auto generates a GitHub link in the navbar and "Edit this page" links at the bottom of each page.
+提供 `themeConfig.repo` 会在导航栏中自动生成一个 GitHub 链接，并在每个页面的底部显示 "Edit this page" 链接。
 
 ``` js
 // .vuepress/config.js
 module.exports = {
   themeConfig: {
-    // Assumes GitHub. Can also be a full GitLab url.
+    // 假定 GitHub。也可以是一个完整的 GitLab 网址
     repo: 'vuejs/vuepress',
-    // if your docs are not at the root of the repo
+    // 如果您的文档不在仓库的根部
     docsDir: 'docs',
-    // optional, defaults to master
+    // 可选，默认为 master
     docsBranch: 'master',
-    // defaults to true, set to false to disable
+    // 默认为 true，设置为 false 来禁用
     editLinks: true
   }
 }
 ```
 
-## Simple CSS Override
+## 简单的 CSS 覆盖
 
-If you wish to apply simple overrides to the styling of the default theme, you can create an `.vuepress/override.styl` file. This is a [Stylus](http://stylus-lang.com/) file but you can use normal CSS syntax as well.
+如果您希望对默认主题的样式应用简单覆盖，则可以创建一个 `.vuepress/override.styl` 文件。 这是 [Stylus](http://stylus-lang.com/) 文件，但您也可以使用普通的 CSS 语法。
 
-There are a few color variables you can tweak:
+有几个颜色变量可以调整：
 
 ``` stylus
-// showing default values
+// 显示默认值
 $accentColor = #3eaf7c
 $textColor = #2c3e50
 $borderColor = #eaecef
 $codeBgColor = #282c34
 ```
 
-## Custom Layout for Specific Pages
+## 特定页面的自定义布局（Custom Layout for Specific Pages）
 
-By default the content of each `*.md` file is rendered in a `<div class="page">` container, along with the sidebar, auto-generated edit links and prev/next links. If you wish to use a completely custom component in place of the page (while only keeping the navbar), you can again specify the component to use using YAML front matter:
+默认情况下，每个 `*.md` 文件的内容都会显示在一个 `<div class =“page”>` 容器中，以及侧边栏，自动生成的编辑链接和 prev/next 链接。如果您希望使用完全自定义的组件代替页面（同时只保留导航栏），则可以使用 YAML 前端再次指定要使用的组件：
 
 ``` yaml
 ---
@@ -222,4 +222,4 @@ layout: SpecialLayout
 ---
 ```
 
-This will render `.vuepress/components/SpecialLayout/vue` for the given page.
+这将为给定页面渲染 `.vuepress/components/SpecialLayout/vue`。
