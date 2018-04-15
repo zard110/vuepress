@@ -10,7 +10,7 @@ module.exports = {
   ],
   serviceWorker: true,
   themeConfig: {
-    repo: 'vuejs/vuepress',
+    repo: 'docschina/vuepress',
     editLinks: true,
     docsDir: 'docs',
     nav: [
