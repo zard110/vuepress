@@ -2,7 +2,7 @@ const base = process.env.GH ? '/vuepress/' : '/'
 
 module.exports = {
   title: 'VuePress',
-  description: 'Vue-powered Static Site Generator',
+  description: 'Vue 驱动静态站点生成工具',
   dest: 'vuepress',
   base,
   head: [
@@ -15,22 +15,22 @@ module.exports = {
     docsDir: 'docs',
     nav: [
       {
-        text: 'Guide',
+        text: '指南',
         link: '/guide/',
       },
       {
-        text: 'Config Reference',
+        text: '配置参考',
         link: '/config/'
       },
       {
-        text: 'Default Theme Config',
+        text: '默认主题配置',
         link: '/default-theme-config/'
       }
     ],
     sidebar: {
       '/guide/': [
         {
-          title: 'Guide',
+          title: '指南',
           collapsable: false,
           children: [
             '',
