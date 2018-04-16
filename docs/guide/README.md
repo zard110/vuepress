@@ -50,3 +50,9 @@ VuePress 能做的事情，Nuxt 也同样能够实现，但是，它是为构建
 ### Hexo
 
 Hexo 一直在为 Vue 文档提供服务 - 事实上，离我们的主站完全迁移到 VuePress，可能还要经过一段时间。其中最大的问题是，它的主题系统是非常静态和基于字符串的 - 我们确实需要利用 Vue 来实现布局和交互。此外，无法对 Hexo 的 markdown 渲染，进行极其灵活的配置。
+
+***
+
+> 原文：[https://vuepress.vuejs.org/guide/](https://vuepress.vuejs.org/guide/)
+
+***
