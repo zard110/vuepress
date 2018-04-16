@@ -223,3 +223,9 @@ layout: SpecialLayout
 ```
 
 这将为给定页面渲染 `.vuepress/components/SpecialLayout/vue`。
+
+***
+
+> 原文：[https://vuepress.vuejs.org/default-theme-config/](https://vuepress.vuejs.org/default-theme-config/)
+
+***
