@@ -4,7 +4,7 @@ sidebar: auto
 
 # 配置参考
 
-## 基本配置（Basic Config）
+## 基本配置(basic config)
 
 ### base
 
@@ -91,7 +91,7 @@ module.exports = {
 此外，只有在你能够使用 SSL 部署你的站点时才能启用此功能，因为 service worker 只能在 HTTPs URLs 下注册。
 :::
 
-## 主题化（Theming）
+## 主题化(theming)
 
 ### theme
 
@@ -151,7 +151,7 @@ module.exports = {
 }
 ```
 
-## 建立管道（Build Pipeline）
+## 建立管道(build pipeline)
 
 ### postcss
 
@@ -192,7 +192,7 @@ module.exports = {
 }
 ```
 
-## 浏览器兼容性（Browser Compatibility）
+## 浏览器兼容性(browser compatibility)
 
 ### evergreen
 
