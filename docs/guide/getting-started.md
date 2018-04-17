@@ -9,7 +9,7 @@
 npm install -g vuepress
 
 # 创建一个 markdown 文件
-echo "# Hello VuePress" > README.md
+echo '# Hello VuePress' > README.md
 
 # 开始编写文档
 vuepress dev
@@ -29,7 +29,7 @@ npm install -D vuepress
 # 创建一个 docs 目录
 mkdir docs
 # 创建一个 markdown 文件
-echo "# Hello VuePress!" > docs/README.md
+echo '# Hello VuePress' > docs/README.md
 
 # 开始编写文档
 npx vuepress dev docs

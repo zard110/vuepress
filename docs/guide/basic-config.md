@@ -23,6 +23,20 @@ VuePress 主题负责你网站的所有布局和交互细节。VuePress 附带�
 
 如果你想开发自定义主题，请参考[自定义主题](./custom-themes.md)。
 
+## App Level Enhancements
+
+Since the VuePress app is a standard Vue app, you can apply app-level enhancements by creating a file `.vuepress/enhanceApp.js`, which will be imported into the app if it is present. The file should `export default` a hook function which will receive an object containing some app level values. You can use this hook to install additional Vue plugins, register global components, or add additional router hooks:
+
+``` js
+export default ({
+  Vue, // the version of Vue being used in the VuePress app
+  options, // the options for the root Vue instance
+  router // the router instance for the app
+}) => {
+  // ...apply enhancements to the app
+}
+```
+
 ***
 
 > 原文：[https://vuepress.vuejs.org/guide/basic-config.html](https://vuepress.vuejs.org/guide/basic-config.html)

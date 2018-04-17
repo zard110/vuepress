@@ -37,7 +37,7 @@ VuePress 使用 Vue 单个文件组件来定制主题。要使用自定义布局
 }
 ```
 
-`title`，`description` 和 `base` 从 `.vuepress/config.js` 中的相应字段复制而来。 `pages` 包含每个页面的元数据对象数组，包括其路径，页面标题（在 YAML frontmatter 中显式指定或从页面上的第一个标题推断）以及该文件中的任意 YAML frontmatter 数据。
+`title`，`description` 和 `base` 从 `.vuepress/config.js` 中的相应字段复制而来。 `pages` 包含每个页面的元数据对象数组，包括其路径，页面标题（在 [YAML front matter](./markdown.html#yaml-front-matter) 中显式指定或从页面上的第一个标题推断）以及该文件中的任意 YAML frontmatter 数据。
 
 这是你正在查看的此页面的 `$page` 对象：
 
@@ -79,6 +79,10 @@ module.exports = {
 ```
 
 VuePress 将尝试定位并使用 `node_modules/vuepress-theme-awesome/Layout.vue`。
+
+## Customizing the Default Theme
+
+The `vuepress eject [targetDir]` command will copy the default theme source code into `.vuepress/theme` to allow complete customization. Note, however, once you eject, you are on your own and won't be receiving future updates or bug fixes to the default theme even if you upgrade VuePress.
 
 ***
 
