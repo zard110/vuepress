@@ -113,19 +113,26 @@ module.exports = {
 
 ## Markdown
 
+### markdown.slugify
+
+- Type: `Function`
+- Default: [source](https://github.com/vuejs/vuepress/blob/master/lib/markdown/slugify.js)
+
+Function for transforming header texts into slugs. This affects the ids/links generated for header anchors, table of contents and sidebar links.
+
 ### markdown.anchor
 
 - Type: `Object`
 - Default: `{ permalink: true, permalinkBefore: true, permalinkSymbol: '#' }`
 
-[markdown-it-anchor](https://github.com/valeriangalliat/markdown-it-anchor) 的选项。
+[markdown-it-anchor](https://github.com/valeriangalliat/markdown-it-anchor) 的选项。(Note: prefer `markdown.slugify` if you want to customize header ids.)
 
 ### markdown.toc
 
 - Type: `Object`
 - Default: `{ includeLevel: [2, 3] }`
 
-[markdown-it-table-of-contents](https://github.com/Oktavilla/markdown-it-table-of-contents) 的选项。
+[markdown-it-table-of-contents](https://github.com/Oktavilla/markdown-it-table-of-contents) 的选项。(Note: prefer `markdown.slugify` if you want to customize header ids.)
 
 ### markdown.config
 
